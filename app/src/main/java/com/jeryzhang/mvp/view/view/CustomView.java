@@ -77,4 +77,12 @@ public class CustomView extends FrameLayout implements CustomViewContract.View {
     public void fail() {
         tipsView.setText("");
     }
+
+    @Override
+    protected void onDetachedFromWindow() {
+        if (presenter != null) {
+            presenter.detachView();
+        }
+        super.onDetachedFromWindow();
+    }
 }

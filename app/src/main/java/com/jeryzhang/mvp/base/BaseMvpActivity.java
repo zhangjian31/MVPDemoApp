@@ -13,11 +13,11 @@ public abstract class BaseMvpActivity<T extends BasePresenter> extends BaseActiv
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
         if (mPresenter == null) {
             mPresenter = createPresenter();
         }
         mPresenter.attachView(this);
-        super.onCreate(savedInstanceState);
     }
 
     protected abstract T createPresenter();
